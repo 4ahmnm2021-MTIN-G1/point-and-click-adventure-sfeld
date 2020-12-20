@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public void displayDialouge()
     {
         dialogeDisplay.text = activeUI.inspectText;
+        activeUI.TriggerDialogue();
     }
     
     public void Exit()

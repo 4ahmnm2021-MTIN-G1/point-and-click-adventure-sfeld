@@ -12,23 +12,26 @@ public class InteractableObject : MonoBehaviour
     public string inspectText;
     public SpriteRenderer image;
     
-    public void Start()
+  
+    public Dialogue dialogue;
+
+    public void TriggerDialogue()
+    {
+        DialogueManager.instance.StartDialogue(dialogue);
+    }
+
+     public void Start()
     {
         image = gameObject.GetComponent<SpriteRenderer>();
         commandMenu.SetActive(false);
     }
 
- 
-
-    
 
     public void OnMouseDown()
     {
         commandMenu.SetActive(true);
         commandMenu.transform.position = gameObject.transform.position;
 
-        uIManager.activeUI = this;
-       
-        
+        uIManager.activeUI = this;        
     }
 }
