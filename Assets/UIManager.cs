@@ -11,10 +11,10 @@ public class UIManager : MonoBehaviour
     public GameObject[] itemSlots;
     int itemsInInvent;
 
-    public void displayDialouge()
+    public void displayDialouge(int dialogeType)
     {
-        dialogeDisplay.text = activeUI.inspectText;
-        activeUI.TriggerDialogue();
+      
+        activeUI.TriggerDialogue(dialogeType);
     }
     
     public void Exit()
@@ -24,15 +24,34 @@ public class UIManager : MonoBehaviour
 
     public void CollectItem()
     {
-        if (itemsInInvent < itemSlots.Length)
+        if (activeUI.isCollectible)
         {
-            itemSlots[itemsInInvent].GetComponent<Image>().sprite =  activeUI.image.sprite  ;
-            activeUI.image.sprite = null;
-            activeUI.gameObject.SetActive(false);
-            itemsInInvent++;
+            if (itemsInInvent < itemSlots.Length)
+            {
+                itemSlots[itemsInInvent].GetComponent<Image>().sprite = activeUI.image.sprite;
+                activeUI.image.sprite = null;
+                activeUI.gameObject.SetActive(false);
+                itemsInInvent++;
+            }
+            else if (itemsInInvent == itemSlots.Length)
+                dialogeDisplay.text = "My Pockets are full";
         }
-        else if (itemsInInvent == itemSlots.Length)
-            dialogeDisplay.text = "My Pockets are full";
+
+        else if (activeUI.collectableObjects.Length > 0)
+        {
+            if (itemsInInvent + activeUI.collectableObjects.Length < itemSlots.Length)
+            {
+                foreach (InteractableObject collectable in activeUI.collectableObjects)
+                {
+                    itemSlots[itemsInInvent].GetComponent<Image>().sprite = collectable.image.sprite;
+                    collectable.image.sprite = null;
+                    collectable.gameObject.SetActive(false);
+                    itemsInInvent++;
+                }
+               
+            }
+            else if (itemsInInvent + activeUI.collectableObjects.Length >= itemSlots.Length)
+                dialogeDisplay.text = "My Pockets are full";
+        }
     }
- 
 }

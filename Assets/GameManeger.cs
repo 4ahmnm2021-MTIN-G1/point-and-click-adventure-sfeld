@@ -10,4 +10,6 @@ public static class GameManeger
     //and provide condiotions (bools) to the dialogue Manager to choose the right Text
 
     static GameObject[] itemsInInventory;
+
+
 }
