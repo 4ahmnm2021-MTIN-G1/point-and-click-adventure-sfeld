@@ -39,13 +39,15 @@ public class InteractableObject : MonoBehaviour
 
      public void Start()
     {
+        uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        objectNameDisp = GameObject.Find("UIManager").GetComponent<followCursor>();
         image = gameObject.GetComponent<SpriteRenderer>();
         commandMenu.SetActive(false);
 
         inspectDia.objectName = gameObject.name;
         useDia.objectName = gameObject.name;
         collectDia.objectName = gameObject.name;
-        uIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+        
     }
 
 
@@ -54,13 +56,17 @@ public class InteractableObject : MonoBehaviour
         if (isInteractable)
         {
             commandMenu.SetActive(true);
-            commandMenu.transform.position = gameObject.transform.position;
+            commandMenu.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -5);
 
             uIManager.activeUI = this;
         }
     }
     public void OnMouseOver()
     {
-        
+        objectNameDisp.displayObjectName(gameObject.name);
+    }
+    private void OnMouseExit()
+    {
+        objectNameDisp.setInactive();
     }
 }

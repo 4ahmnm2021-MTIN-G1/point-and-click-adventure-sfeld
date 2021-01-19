@@ -11,7 +11,7 @@ public class followCursor : MonoBehaviour
 
     private void Start()
     {
-        displayText = followObject.GetComponent<Text>();
+        displayText = followObject.transform.GetChild(0).GetComponent<Text>();
         followObject.SetActive(false); 
     }
 
@@ -30,5 +30,9 @@ public class followCursor : MonoBehaviour
     {
         followObject.SetActive(true);
         displayText.text = name; 
+    }
+    public void setInactive()
+    {
+        followObject.SetActive(false);
     }
 }
