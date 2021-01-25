@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public Text dialogueText;
+    public Button skipButton; 
 
      Queue<string> sentences;
 
@@ -23,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue (Dialogue dialogue)
     {
         Debug.Log("Interact with" +  dialogue.objectName);
+        skipButton.gameObject.SetActive(true);
 
         sentences.Clear();
 
@@ -34,12 +36,15 @@ public class DialogueManager : MonoBehaviour
     }
     public void DisplayNextSentence()
     {
+
         if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
         //!! make the skip button a differnt color so the player knows theres more text to see 
+        
+
 
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
@@ -62,6 +67,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         Debug.Log("Conversation ended");
-        dialogueText.text = null; 
+        dialogueText.text = null;
+        skipButton.gameObject.SetActive(false);
     }
 }
