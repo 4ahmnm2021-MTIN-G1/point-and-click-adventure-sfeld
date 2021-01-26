@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
 
     int currentSlot;
     public InteractableObject currentlyUsed;
+    public static UIManager uIManager;
 
     public void displayDialouge(int dialogeType)
     {
@@ -24,6 +25,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         itemTypesinInvent = new List<InteractableObject>();
+        uIManager = this;
     }
 
     public void Exit()
@@ -71,7 +73,7 @@ public class UIManager : MonoBehaviour
 
         else if (activeUI.collectableObjects.Length > 0)
         {
-            if (itemsInInvent + activeUI.collectableObjects.Length < itemSlots.Length) // this whole if-statement situiation is kinds shady but it works for now
+            if (itemsInInvent + activeUI.collectableObjects.Length < itemSlots.Length) // this whole if-statement situiation is kinda shady but it works for now
             {
                 foreach (InteractableObject collectable in activeUI.collectableObjects)
                 {
@@ -79,6 +81,7 @@ public class UIManager : MonoBehaviour
                     collectable.image.sprite = null;
                     collectable.gameObject.SetActive(false);
                     itemsInInvent++;
+                    itemTypesinInvent.Add(collectable.GetComponent<InteractableObject>());
                 }
                
             }

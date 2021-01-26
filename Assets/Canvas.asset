@@ -10,10 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4675f68dc56af246ab6892f9a9ff3c5, type: 3}
-  m_Name: test
+  m_Name: Canvas
   m_EditorClassIdentifier: 
   gameObject: {fileID: 5036281789907993611, guid: 2d2744f6f22870d46a312112c96dae76,
     type: 3}
   sprites:
+  - {fileID: 21300000, guid: aeeafcccc7501a74899246f3004d49ab, type: 3}
   - {fileID: 21300000, guid: 4d6880f07310f1c4cab4286f0410a55e, type: 3}
+  spriteNumber: 1
   objectIndex: 1
+  indexBacklog: 01000000010000000100000001000000
+  chara: {fileID: 0}
+  dia1:
+    sentences:
+    - "A self-portrait? Why not\u2026"
+    objectName: 

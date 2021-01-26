@@ -13,13 +13,42 @@ public class DesiredObject : ScriptableObject
 
     public GameObject gameObject;
     public Sprite[] sprites;
-    int spriteNumber;
+    public int spriteNumber = 0;
     public int objectIndex;
+    public int[] indexBacklog;
 
+    public GameObject chara;
+    public Dialogue dia1;
 
-public void switchSprite(SpriteRenderer renderer)
+    int counting;
+
+public void executeComand(int i, SpriteRenderer renderer) //this is dumb but it's 1am 
     {
-        renderer.sprite = sprites[spriteNumber];
+        switch (i) {
+            case (1):
+                renderer.sprite = sprites[spriteNumber];
+                objectIndex = indexBacklog[counting];
+                spriteNumber++;
+                counting++;
+                break;
+
+            case (2):
+                chara = GameObject.FindGameObjectWithTag("Player");
+                GameObject.Instantiate(gameObject, chara.transform);
+                GameProgress.gameProgress.conditions[i].isTrue = true;
+                break;
+
+            case (3):
+                if(GameProgress.gameProgress.conditions[1].isTrue && GameProgress.gameProgress.conditions[2].isTrue)
+                {
+                    renderer.sprite = sprites[spriteNumber];
+                    DialogueManager.instance.StartDialogue(dia1);
+                    break;
+                }
+                break;
+        }
     }
+
+    
     
 }

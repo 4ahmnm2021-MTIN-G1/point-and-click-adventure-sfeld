@@ -11,19 +11,23 @@ public class InteractableObject : MonoBehaviour
 
     public DesiredObject desiredObject;
     public int objectIndex;
+    public int caseInt;
 
    public GameObject commandMenu;
     public UIManager uIManager;
     public GameProgress gameProgress; 
     public followCursor objectNameDisp;
     public SpriteRenderer image;
+    public SpriteRenderer secondImage;
+     
 
     public InteractableObject[] collectableObjects;
     public bool isInteractable = true;
     public bool isCollectible = true;
-
+    public bool checkOnUse; //I coulnd't think of anythink smarter so here come all the bools and manual labor for me :)
     public bool conditionNeeded;
     public int conditionIndex;
+
 
     public bool influencesCondition;
     public int influenceIndex;
@@ -32,6 +36,9 @@ public class InteractableObject : MonoBehaviour
     public Dialogue useDia;
     
     public Dialogue collectDia;
+    public Dialogue rejectDia;
+
+    
 
     public void TriggerDialogue(int dialogeType)
     {
@@ -41,12 +48,19 @@ public class InteractableObject : MonoBehaviour
                 DialogueManager.instance.StartDialogue(inspectDia);
                 break;
             case 2:
+                
                 UseWithCheck();
+                if(checkOnUse)
                 ConditionCheck();
+                else
+                DialogueManager.instance.StartDialogue(useDia);
+
                 break; 
                
             case 3:
                 DialogueManager.instance.StartDialogue(collectDia);
+                if (!checkOnUse)
+                    ConditionCheck();
                 break;
         }
 
@@ -65,7 +79,9 @@ public class InteractableObject : MonoBehaviour
         inspectDia.objectName = gameObject.name;
         useDia.objectName = gameObject.name;
         collectDia.objectName = gameObject.name;
-        
+
+       
+        rejectDia.sentences[0] = "This does not work";
     }
 
 
@@ -93,25 +109,35 @@ public class InteractableObject : MonoBehaviour
        
         if (conditionNeeded == false)
         {
+            if(checkOnUse)
             DialogueManager.instance.StartDialogue(useDia);
+            else
+                DialogueManager.instance.StartDialogue(collectDia);
             if (influencesCondition)
             {
                 gameProgress.conditions[influenceIndex].isTrue = true;
+                
             }
         }
         else
         {
             if (gameProgress.conditions[conditionIndex].isTrue)
             {
+                
                 //do something
                 DialogueManager.instance.StartDialogue(useDia);
-                if (influencesCondition)
-                {
-                    gameProgress.conditions[influenceIndex].isTrue = true;
-                }
+                useDia.sentences[0].Remove(0);
+                desiredObject.executeComand(caseInt, image);
+                caseInt+= 2;
 
             }
-          
+            else
+                DialogueManager.instance.StartDialogue(rejectDia);
+
+            if (influencesCondition)
+            {
+                gameProgress.conditions[influenceIndex].isTrue = true;
+            }
         }
     }
 
@@ -124,10 +150,11 @@ public class InteractableObject : MonoBehaviour
             if (uIManager.currentlyUsed.objectIndex == desiredObject.objectIndex)
             {
                 Debug.Log("match Found" + uIManager.currentlyUsed.gameObject);
-                desiredObject.switchSprite(image);
+                desiredObject.executeComand( caseInt, image);
             }
             else
                 print("does not match");
+            DialogueManager.instance.StartDialogue(rejectDia);
                     return;
             }
             else

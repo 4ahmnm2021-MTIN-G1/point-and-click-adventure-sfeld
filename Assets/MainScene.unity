@@ -214,14 +214,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredObject: {fileID: 0}
   objectIndex: 0
+  caseInt: 0
   commandMenu: {fileID: 0}
   uIManager: {fileID: 896142705}
   gameProgress: {fileID: 0}
   objectNameDisp: {fileID: 0}
   image: {fileID: 102964963}
+  secondImage: {fileID: 0}
   collectableObjects: []
   isInteractable: 0
   isCollectible: 1
+  checkOnUse: 0
   conditionNeeded: 0
   conditionIndex: 0
   influencesCondition: 0
@@ -233,6 +236,9 @@ MonoBehaviour:
     sentences: []
     objectName: 
   collectDia:
+    sentences: []
+    objectName: 
+  rejectDia:
     sentences: []
     objectName: 
 --- !u!1 &176081187
@@ -742,12 +748,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233550532}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.91831684, y: -0.28, z: 0}
+  m_LocalPosition: {x: -1.99, y: 1.54, z: 0}
   m_LocalScale: {x: 0.7373535, y: 0.7373535, z: 0.7373535}
   m_Children:
   - {fileID: 1482901393}
   m_Father: {fileID: 617682195}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &233550534
 MonoBehaviour:
@@ -1526,15 +1532,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredObject: {fileID: 0}
-  objectIndex: 0
+  objectIndex: 2
+  caseInt: 0
   commandMenu: {fileID: 0}
   uIManager: {fileID: 896142705}
   gameProgress: {fileID: 0}
   objectNameDisp: {fileID: 0}
   image: {fileID: 504278268}
+  secondImage: {fileID: 0}
   collectableObjects: []
   isInteractable: 0
   isCollectible: 1
+  checkOnUse: 0
   conditionNeeded: 0
   conditionIndex: 0
   influencesCondition: 0
@@ -1546,6 +1555,9 @@ MonoBehaviour:
     sentences: []
     objectName: 
   collectDia:
+    sentences: []
+    objectName: 
+  rejectDia:
     sentences: []
     objectName: 
 --- !u!1 &531747179
@@ -1869,16 +1881,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredObject: {fileID: 0}
   objectIndex: 0
+  caseInt: 0
   commandMenu: {fileID: 1866856288}
   uIManager: {fileID: 896142705}
   gameProgress: {fileID: 0}
   objectNameDisp: {fileID: 0}
   image: {fileID: 0}
+  secondImage: {fileID: 0}
   collectableObjects:
   - {fileID: 102964965}
   - {fileID: 504278270}
   isInteractable: 1
   isCollectible: 0
+  checkOnUse: 0
   conditionNeeded: 0
   conditionIndex: 0
   influencesCondition: 0
@@ -1895,6 +1910,9 @@ MonoBehaviour:
   collectDia:
     sentences:
     - "There\u2019s some stuff in here I could use"
+    objectName: 
+  rejectDia:
+    sentences: []
     objectName: 
 --- !u!60 &578945969
 PolygonCollider2D:
@@ -2395,8 +2413,8 @@ Transform:
   m_Children:
   - {fileID: 494425055}
   - {fileID: 2014435255}
-  - {fileID: 1360927858}
   - {fileID: 233550533}
+  - {fileID: 1360927858}
   m_Father: {fileID: 181017050}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3102,7 +3120,7 @@ MonoBehaviour:
     isTrue: 0
   - name: SketchMade
     isTrue: 0
-  - name: SketchMade
+  - name: WearingHat
     isTrue: 0
   - name: SketchMade
     isTrue: 0
@@ -3213,14 +3231,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredObject: {fileID: 0}
   objectIndex: 0
+  caseInt: 0
   commandMenu: {fileID: 1866856288}
   uIManager: {fileID: 0}
   gameProgress: {fileID: 0}
   objectNameDisp: {fileID: 0}
   image: {fileID: 0}
+  secondImage: {fileID: 0}
   collectableObjects: []
   isInteractable: 1
   isCollectible: 1
+  checkOnUse: 0
   conditionNeeded: 0
   conditionIndex: 0
   influencesCondition: 0
@@ -3237,6 +3258,9 @@ MonoBehaviour:
   collectDia:
     sentences:
     - "It\u2019s too high up"
+    objectName: 
+  rejectDia:
+    sentences: []
     objectName: 
 --- !u!60 &921213496
 PolygonCollider2D:
@@ -3596,14 +3620,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredObject: {fileID: 0}
   objectIndex: 0
+  caseInt: 0
   commandMenu: {fileID: 1866856288}
   uIManager: {fileID: 896142705}
   gameProgress: {fileID: 0}
   objectNameDisp: {fileID: 0}
   image: {fileID: 1012747216}
+  secondImage: {fileID: 0}
   collectableObjects: []
   isInteractable: 1
   isCollectible: 0
+  checkOnUse: 0
   conditionNeeded: 0
   conditionIndex: 0
   influencesCondition: 0
@@ -3618,6 +3645,9 @@ MonoBehaviour:
   collectDia:
     sentences:
     - I can't move this, it's to heavy.
+    objectName: 
+  rejectDia:
+    sentences: []
     objectName: 
 --- !u!60 &1012747218
 PolygonCollider2D:
@@ -4001,18 +4031,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredObject: {fileID: 11400000, guid: 35c5eedde8ab2fb45b68fe4239d8ebdf, type: 2}
   objectIndex: 0
+  caseInt: 1
   commandMenu: {fileID: 1866856288}
   uIManager: {fileID: 896142705}
   gameProgress: {fileID: 0}
   objectNameDisp: {fileID: 0}
   image: {fileID: 1058626645}
+  secondImage: {fileID: 0}
   collectableObjects: []
   isInteractable: 1
   isCollectible: 0
-  conditionNeeded: 0
+  checkOnUse: 1
+  conditionNeeded: 1
   conditionIndex: 0
-  influencesCondition: 0
-  influenceIndex: 0
+  influencesCondition: 1
+  influenceIndex: 1
   inspectDia:
     sentences:
     - "It\u2019s just an empty canvas"
@@ -4024,6 +4057,10 @@ MonoBehaviour:
   collectDia:
     sentences:
     - I can't move this, it's to heavy.
+    objectName: 
+  rejectDia:
+    sentences:
+    - 'This does not work '
     objectName: 
 --- !u!212 &1058626645
 SpriteRenderer:
@@ -4795,14 +4832,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredObject: {fileID: 0}
   objectIndex: 0
+  caseInt: 0
   commandMenu: {fileID: 1866856288}
   uIManager: {fileID: 896142705}
   gameProgress: {fileID: 0}
   objectNameDisp: {fileID: 0}
   image: {fileID: 0}
+  secondImage: {fileID: 0}
   collectableObjects: []
   isInteractable: 1
   isCollectible: 0
+  checkOnUse: 0
   conditionNeeded: 0
   conditionIndex: 0
   influencesCondition: 0
@@ -4818,6 +4858,9 @@ MonoBehaviour:
   collectDia:
     sentences:
     - "I don\u2019t think this will fit in my Pocket"
+    objectName: 
+  rejectDia:
+    sentences: []
     objectName: 
 --- !u!1 &1360927856
 GameObject:
@@ -4898,7 +4941,7 @@ Transform:
   m_LocalScale: {x: 0.57588035, y: 0.57588035, z: 0.57588035}
   m_Children: []
   m_Father: {fileID: 617682195}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1360927859
 MonoBehaviour:
@@ -4914,14 +4957,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredObject: {fileID: 0}
   objectIndex: 0
+  caseInt: 0
   commandMenu: {fileID: 1866856288}
   uIManager: {fileID: 896142705}
   gameProgress: {fileID: 0}
   objectNameDisp: {fileID: 0}
   image: {fileID: 0}
+  secondImage: {fileID: 0}
   collectableObjects: []
   isInteractable: 1
   isCollectible: 0
+  checkOnUse: 0
   conditionNeeded: 0
   conditionIndex: 0
   influencesCondition: 0
@@ -4933,6 +4979,9 @@ MonoBehaviour:
     sentences: []
     objectName: 
   collectDia:
+    sentences: []
+    objectName: 
+  rejectDia:
     sentences: []
     objectName: 
 --- !u!60 &1360927860
@@ -6727,14 +6776,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredObject: {fileID: 0}
   objectIndex: 0
+  caseInt: 0
   commandMenu: {fileID: 1866856288}
   uIManager: {fileID: 0}
   gameProgress: {fileID: 0}
   objectNameDisp: {fileID: 0}
   image: {fileID: 1964019126}
+  secondImage: {fileID: 0}
   collectableObjects: []
   isInteractable: 1
   isCollectible: 0
+  checkOnUse: 0
   conditionNeeded: 0
   conditionIndex: 0
   influencesCondition: 0
@@ -6750,6 +6802,9 @@ MonoBehaviour:
   collectDia:
     sentences:
     - "No, I\x19d like to leave my pockets dry thanks"
+    objectName: 
+  rejectDia:
+    sentences: []
     objectName: 
 --- !u!60 &1964019128
 PolygonCollider2D:
@@ -7166,16 +7221,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b164238e8ad02b4ca789308aec30d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desiredObject: {fileID: 0}
+  desiredObject: {fileID: 11400000, guid: 88088efe766599d43944816bf37a5a6b, type: 2}
   objectIndex: 0
+  caseInt: 2
   commandMenu: {fileID: 1866856288}
   uIManager: {fileID: 0}
   gameProgress: {fileID: 0}
   objectNameDisp: {fileID: 0}
   image: {fileID: 2052006399}
+  secondImage: {fileID: 0}
   collectableObjects: []
   isInteractable: 1
   isCollectible: 0
+  checkOnUse: 0
   conditionNeeded: 0
   conditionIndex: 0
   influencesCondition: 0
@@ -7191,6 +7249,10 @@ MonoBehaviour:
   collectDia:
     sentences:
     - Why would I want to carry a mirror around
+    objectName: 
+  rejectDia:
+    sentences:
+    - 'Why would I do that '
     objectName: 
 --- !u!60 &2052006402
 PolygonCollider2D:
@@ -7374,6 +7436,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2074685965}
   - component: {fileID: 2074685966}
+  - component: {fileID: 2074685967}
+  - component: {fileID: 2074685968}
   m_Layer: 0
   m_Name: windowClosed
   m_TagString: Untagged
@@ -7443,6 +7507,76 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2074685967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074685964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b164238e8ad02b4ca789308aec30d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desiredObject: {fileID: 0}
+  objectIndex: 0
+  caseInt: 0
+  commandMenu: {fileID: 1866856288}
+  uIManager: {fileID: 896142705}
+  gameProgress: {fileID: 0}
+  objectNameDisp: {fileID: 0}
+  image: {fileID: 0}
+  secondImage: {fileID: 0}
+  collectableObjects: []
+  isInteractable: 1
+  isCollectible: 0
+  checkOnUse: 0
+  conditionNeeded: 0
+  conditionIndex: 0
+  influencesCondition: 0
+  influenceIndex: 0
+  inspectDia:
+    sentences:
+    - I see some Sunflowers outside
+    objectName: 
+  useDia:
+    sentences:
+    - I need a key to open this
+    objectName: 
+  collectDia:
+    sentences:
+    - "I\u2019m not strong enough to do that"
+    objectName: 
+  rejectDia:
+    sentences: []
+    objectName: 
+--- !u!61 &2074685968
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074685964}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.07522434}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.69, y: 3.57}
+    newSize: {x: 2.69, y: 3.57}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.69, y: 3.419551}
+  m_EdgeRadius: 0
 --- !u!1 &2112582870
 GameObject:
   m_ObjectHideFlags: 0
@@ -7603,6 +7737,11 @@ PrefabInstance:
         type: 3}
       propertyPath: objectIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036281789907993608, guid: 2d2744f6f22870d46a312112c96dae76,
+        type: 3}
+      propertyPath: useDia.sentences.Array.data[0]
+      value: I should pick it up first
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d2744f6f22870d46a312112c96dae76, type: 3}
