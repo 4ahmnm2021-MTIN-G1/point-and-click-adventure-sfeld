@@ -17,11 +17,15 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: aeeafcccc7501a74899246f3004d49ab, type: 3}
   - {fileID: 21300000, guid: 4d6880f07310f1c4cab4286f0410a55e, type: 3}
-  spriteNumber: 1
+  - {fileID: 21300000, guid: 4d6880f07310f1c4cab4286f0410a55e, type: 3}
+  - {fileID: 21300000, guid: 4d6880f07310f1c4cab4286f0410a55e, type: 3}
+  - {fileID: 21300000, guid: 4d6880f07310f1c4cab4286f0410a55e, type: 3}
+  - {fileID: 21300000, guid: b0d2d3ed874255f4e97da91016c2edcd, type: 3}
+  spriteNumber: 0
   objectIndex: 1
   indexBacklog: 01000000010000000100000001000000
-  chara: {fileID: 0}
+  chara: {fileID: 5590569402118314354, guid: b71d58dc6bb622b4d849f89f9e5c307c, type: 3}
   dia1:
     sentences:
     - "A self-portrait? Why not\u2026"
-    objectName: 
+  counting: 0

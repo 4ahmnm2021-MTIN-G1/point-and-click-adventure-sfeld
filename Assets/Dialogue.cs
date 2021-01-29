@@ -7,9 +7,10 @@ public class Dialogue
 {
     [TextArea(3, 10)]
     public string[] sentences;
+    [System.NonSerialized]
     public string objectName;
 
-
+    
 
    
 }

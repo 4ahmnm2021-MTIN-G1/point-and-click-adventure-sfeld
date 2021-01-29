@@ -7,21 +7,28 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public InteractableObject activeUI;
+    public canvasEvents canvasEvent;
     public GameObject useWithButtonUI;
     public Text dialogeDisplay;
     public GameObject[] itemSlots;
     int itemsInInvent;
     List<InteractableObject> itemTypesinInvent;
+    public int margin;
 
     int currentSlot;
     public InteractableObject currentlyUsed;
     public static UIManager uIManager;
+    public bool isCanvas = false;
+
 
     public void displayDialouge(int dialogeType)
     {
-      
+      if (!isCanvas)
         activeUI.TriggerDialogue(dialogeType);
+      else
+        canvasEvent.TriggerDialogue(dialogeType);
     }
+
     private void Start()
     {
         itemTypesinInvent = new List<InteractableObject>();

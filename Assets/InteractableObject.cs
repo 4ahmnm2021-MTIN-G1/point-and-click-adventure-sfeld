@@ -38,7 +38,7 @@ public class InteractableObject : MonoBehaviour
     public Dialogue collectDia;
     public Dialogue rejectDia;
 
-    
+    int margin;
 
     public void TriggerDialogue(int dialogeType)
     {
@@ -80,7 +80,8 @@ public class InteractableObject : MonoBehaviour
         useDia.objectName = gameObject.name;
         collectDia.objectName = gameObject.name;
 
-       
+        margin = uIManager.margin;
+
         rejectDia.sentences[0] = "This does not work";
     }
 
@@ -89,9 +90,10 @@ public class InteractableObject : MonoBehaviour
     {
         if (isInteractable)
         {
+            uIManager.isCanvas = false;
             commandMenu.SetActive(true);
             commandMenu.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -7);
-
+           CheckBoudaries(Input.mousePosition );
             uIManager.activeUI = this;
         }
     }
@@ -151,6 +153,10 @@ public class InteractableObject : MonoBehaviour
             {
                 Debug.Log("match Found" + uIManager.currentlyUsed.gameObject);
                 desiredObject.executeComand( caseInt, image);
+                if (caseInt == 4)
+                {
+                    Destroy(gameObject.GetComponent<BoxCollider2D>());
+                }
             }
             else
                 print("does not match");
@@ -161,5 +167,25 @@ public class InteractableObject : MonoBehaviour
                 return;
         }
         
+    void CheckBoudaries(Vector2 input)
+    {
+        
+        /*if (Input.mousePosition.x < 0 + margin )
+        {
+            position += new Vector3(margin, 0, -7);
+            print("outsie of margin");
+        }
+       
+        if (Input.mousePosition.x > Screen.width + margin)
+        {
+            position -= new Vector3(margin, 0, -7);
+            print("outsie of margin");
+        }*/
 
+        if (Input.mousePosition.y > Screen.height - margin)
+        {
+           commandMenu.transform.position -= new Vector3(0, margin/30, 0);
+            print("outsie of margin");
+        }
+    }
 }
